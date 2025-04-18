@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportify - Teams</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Sportify</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="teams.html" class="active">Teams</a></li>
+            </ul>
+            <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        </nav>
+    </header>
+    <main>
+        <section class="controls">
+            <input type="text" id="search-bar" placeholder="Search teams...">
+            <select id="view-mode">
+                <!-- I asked ai: How can I make a grid and list view for the cards on my page? -->
+                <option value="grid">Grid View</option>
+                <option value="list">List View</option>
+            </select>
+        </section>
+        <section id="loading" class="loading hidden">Loading teams...</section>
+        <section id="teams-container" class="teams-grid"></section>
+        <div class="pagination">
+            <button id="prev-page">Previous</button>
+            <span id="page-info"></span>
+            <button id="next-page">Next</button>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Sportify. All rights reserved.</p>
+    </footer>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
