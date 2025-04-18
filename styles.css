@@ -80,7 +80,7 @@ main {
     padding: 0.5rem;
     font-size: 1rem;
 }
-
+ /* I asked ai: How can I make a grid and list view for the cards on my page? */
 .teams-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -134,7 +134,7 @@ body.dark-mode .team-card, body.dark-mode .team-list-item {
     font-size: 0.9rem;
 }
 
-/* I asked ai: How can I make a list view for my page? */
+/* I asked ai: How can I make a grid and list view for the cards on my page? */
 .team-list-item {
     display: flex;
     align-items: center;

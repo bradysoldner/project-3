@@ -13,13 +13,12 @@ function fetchTeams() {
 
     if (loadingElement) loadingElement.classList.remove('hidden');
 
-    // Reset allTeams
     allTeams = [];
 
     fetch("https://sports.is120.ckearl.com/")
         .then((response) => response.json())
         .then((dataObject) => {
-            CompleteSteps(dataObject); // Pass dataObject directly
+            CompleteSteps(dataObject);
 
             console.log('Mapped allTeams:', allTeams);
 
@@ -33,13 +32,11 @@ function fetchTeams() {
             if (loadingElement) loadingElement.classList.add('hidden');
         });
 }
-
-// Define CompleteSteps to process the data
+// I asked ai: Why won't this function work?
 function CompleteSteps(data) {
     ['nfl', 'mlb', 'nba', 'nhl'].forEach(league => {
         const leagueTeams = data[league]?.teams || [];
         const mappedTeams = leagueTeams.map(team => {
-            // Parse the record to extract wins and losses
             const [wins, losses] = team.record ? team.record.split('-').map(Number) : [0, 0];
             return {
                 team_id: team.id.toString(),
@@ -286,12 +283,12 @@ function setupPagination() {
 }
 
 // I asked ai: How can I implement data persistance in my site?
-// function saveRecentlyViewed() {
-//     const viewedTeams = JSON.parse(localStorage.getItem('recentlyViewed') || '[]');
-//     const currentTeams = allTeams.slice(0, 3).map(team => team.team_id);
-//     const updatedViewed = [...new Set([...currentTeams, ...viewedTeams])].slice(0, 5);
-//     localStorage.setItem('recentlyViewed', JSON.stringify(updatedViewed));
-// }
+function saveRecentlyViewed() {
+    const viewedTeams = JSON.parse(localStorage.getItem('recentlyViewed') || '[]');
+    const currentTeams = allTeams.slice(0, 3).map(team => team.team_id);
+    const updatedViewed = [...new Set([...currentTeams, ...viewedTeams])].slice(0, 5);
+    localStorage.setItem('recentlyViewed', JSON.stringify(updatedViewed));
+}
 
 // I asked ai: How can I put a dark mode that I can toggle on my sight?
 function setupDarkMode() {
